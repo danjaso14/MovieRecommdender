@@ -32,6 +32,8 @@ public class MovieRecommenderTest {
         } catch (IOException e) {
             Assert.fail(" File check failed: " + e.getMessage());
         }
+        if (count <= 0)
+            Assert.fail(" File check failed, files are different" );
     }
 
     @Test
@@ -52,6 +54,8 @@ public class MovieRecommenderTest {
         } catch (IOException e) {
             Assert.fail(" File check failed: " + e.getMessage());
         }
+        if (count <= 0)
+            Assert.fail(" File check failed, files are different" );
     }
 
 
