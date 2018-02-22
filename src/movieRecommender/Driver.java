@@ -141,16 +141,7 @@ public class Driver {
 
 
 
-// ===========================================================
 
-        MovieRatingsList list = new MovieRatingsList();
-//
-//
-        //Test case for Pearson
-
-        list.insertByRating(1, 4.0);
-        list.insertByRating(2, 5.0);
-        list.insertByRating(3, 1.0);
 
 //====================================================================
         // ToString Userlist and other toString Methods cases
@@ -197,30 +188,61 @@ public class Driver {
 ////        list.push(1, 3.0);
 ////        list.push(2, 5.0);
 ////        list.push(3, 4.5);
+
+        // ===========================================================
+
+        MovieRatingsList list = new MovieRatingsList();
 //
-        list.print();
-//
-        MovieRatingsList another = new MovieRatingsList();
-        another.push(1,2.0);
-        another.push(3,5.0);
-        another.push(2,5.0);
-//        another.push(8,5.0);
-//        another.push(10,5.0);
+//=============================================================================
+        //Test case for Pearson
 
-
-
-
-
-
-//        another.push(8,2.0);
-////
-        another.print();
+//        list.insertByRating(1, 3.0);
+//        list.insertByRating(2, 4.0);
+//        list.insertByRating(3, 5.0);
+//        list.insertByRating(5, 1.0);
 //
 //
-        list.computeSimilarity(another);
-        System.out.println();
+//        list.print();
+//
+//        MovieRatingsList another = new MovieRatingsList();
+//        another.insertByRating(0,1.0);
+//        another.insertByRating(2,2.0);
+//        another.insertByRating(3,5.0);
+//        another.insertByRating(4,5.0);
+//        another.insertByRating(5,5.0);
+//
+//
+//        another.print();
+//
+//        list.computeSimilarity(another);
 
-        System.out.println(list.computeSimilarity(another));
+        //===================================================================================
+
+        //Test case for usersSimilarity
+
+        UsersList u = new UsersList();
+
+
+        u.printUserList();
+
+        u.findMostSimilarUser(2);
+
+        int[] MOVIES1 = {1, 2, 3, 4, 5, 6, 7};
+        double[] RATINGS1 = {5, 5, 2, 5, 4, 3, 4};
+        int[] MOVIES2 = {2, 4, 7};
+        double[] RATINGS2 = {4, 1, 2};
+        int[] MOVIES3 = {1, 4, 5, 7};
+        double[] RATINGS3 = {3, 2, 5, 1};
+
+        u.addData(u, 1, MOVIES1, RATINGS1);
+        double[] ratings2 = {5, 4, 4};
+        u.addData(u, 2, MOVIES2, ratings2);
+        u.addData(u, 3, MOVIES3, RATINGS3);
+
+        int mostSimilar1 = u.findMostSimilarUser(1).getId();
+        System.out.println(mostSimilar1);
+        u.findMostSimilarUser(3);
+
 
         //===============================================================
 ////        UsersList u_l = new UsersList();
@@ -358,32 +380,7 @@ public class Driver {
 //
 
 
-//        UsersList u = new UsersList();
-//        u.insert(1,20,4.0);
-//        u.insert(2,22,3.0);
-//        u.insert(4,24,5.0);
-//        u.insert(7,30,1.0);
-//
-//        u.printUserList();
-//
-//        u.findMostSimilarUser(2);
 
-        int[] MOVIES1 = {1, 2, 3, 4, 5, 6, 7};
-        double[] RATINGS1 = {5, 5, 2, 5, 4, 3, 4};
-        int[] MOVIES2 = {2, 4, 7};
-        double[] RATINGS2 = {4, 1, 2};
-        int[] MOVIES3 = {1, 4, 5, 7};
-        double[] RATINGS3 = {3, 2, 5, 1};
-//
-        UsersList u = new UsersList();
-        u.addData(u, 1, MOVIES1, RATINGS1);
-        double[] ratings2 = {5, 4, 4};
-        u.addData(u, 2, MOVIES2, ratings2);
-        u.addData(u, 3, MOVIES3, RATINGS3);
-
-        int mostSimilar1 = u.findMostSimilarUser(1).getId();
-        System.out.println(mostSimilar1);
-        u.findMostSimilarUser(3);
 
 
 

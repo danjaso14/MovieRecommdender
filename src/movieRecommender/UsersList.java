@@ -163,12 +163,14 @@ public class UsersList {
         while (current != null)
         {
             if(current.getId() == userid)
-                found_user = new UserNode(userid);
+            {
+                found_user = current;
+            }
 
             current = current.next();
         }
 
-        System.out.println(found_user.toString());
+//        System.out.println(found_user.toString());
 
 
 //
