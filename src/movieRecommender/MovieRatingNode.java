@@ -26,6 +26,12 @@ public class MovieRatingNode {
             movieRating = rating;
     }
 
+//    public MovieRatingNode() {
+//        this.movieId = this.getMovieId();
+//        this.movieRating = this.getMovieRating();
+//
+//    }
+
     /**
      * Advance to the next node in the list.
      * @return next node
@@ -70,6 +76,7 @@ public class MovieRatingNode {
      * @return string that contains movie info
      */
     public String toString() {
-        return movieId + ", " + movieRating;
+        return movieId + "," + movieRating;
     }
+
 }

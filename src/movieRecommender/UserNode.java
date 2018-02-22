@@ -1,5 +1,7 @@
 package movieRecommender;
 
+import java.util.Iterator;
+
 /** UserNode. The class represents a node in the UsersList.
  *  Stores a userId, a list of ratings of type MovieRatingsList,
  *  and a reference to the "next" user in the list.
@@ -20,7 +22,8 @@ public class UserNode {
         movieRatings = new MovieRatingsList();
         nextUser = null;
     }
-
+// getMovieRatingsList method - want to return movieRatingsList
+// Insert the movie into the list using movieRatingsList.insertByRating();
     /**
      * Getter for the next reference
      * @return the next node in the linked list of users
@@ -51,6 +54,36 @@ public class UserNode {
 
     }
 
+    public String toString() {
+
+        String list = "";
+
+        list += "(" + userId + ")" + movieRatings.toString();
+
+
+//        Iterator it = movieRatings.iterator();
+//        MovieRatingNode current = null;
+//
+//        while (it.hasNext())
+//        {
+//            current = (MovieRatingNode) it.next();
+//            list += "(" + userId + ")" + movieRatings.toString() + ";";
+////            System.out.println("hello");
+//
+//        }
+//        System.out.println(list);
+
+
+
+
+
+
+        return  list;
+
+
+
+    }
+
 
     /**
      * Add rating info for a given movie to the MovieRatingsList
@@ -59,7 +92,8 @@ public class UserNode {
      * @param movieId id of the movie
      * @param rating  rating of the movie
      */
-    public void insert(int movieId, double rating) {
+    public void insert(int movieId, double rating)
+    {
         movieRatings.insertByRating(movieId, rating);
 
     }
@@ -71,11 +105,38 @@ public class UserNode {
      * @param n  the maximum number of movies to return
      * @return array containing movie ids of movies rated as 5 (by this user)
      */
-    public int[] getFavoriteMovies(int n) {
+    public int[] getFavoriteMovies(int n)
+    {
         // FILL IN CODE
 
-        return null; // don't forget to change
+        int [] favMovies = new int[n];
+
+        Iterator it = movieRatings.iterator();
+        int i = 0;
+        while(it.hasNext())
+        {
+            MovieRatingNode current = (MovieRatingNode) it.next();
+
+            if(current.getMovieRating() >= 5)
+            {
+                favMovies[i] = current.getMovieId();
+                i++;
+            }
+
+
+        }
+
+
+        for(int j = 0; j < n; j++ )
+        {
+            System.out.println(favMovies[j]);
+        }
+
+
+        return favMovies;
     }
+
+
 
     /**
      * Returns an array of movies the user likes the least (up to n). These
@@ -87,7 +148,30 @@ public class UserNode {
     public int[] getLeastFavoriteMovies(int n) {
         // FILL IN CODE
 
-        return null; // don't forget to change
+        int [] worstMovies = new int[n];
+
+        Iterator it = movieRatings.iterator();
+        int i = 0;
+        while(it.hasNext())
+        {
+            MovieRatingNode current = (MovieRatingNode) it.next();
+
+            if(current.getMovieRating() <= 1)
+            {
+                worstMovies[i] = current.getMovieId();
+                i++;
+            }
+
+
+        }
+
+
+        for(int j = 0; j < n; j++ )
+        {
+            System.out.println(worstMovies[j]);
+        }
+
+        return worstMovies;
     }
 
     /**
