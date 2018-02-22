@@ -153,31 +153,31 @@ public class MovieRecommender {
         // FILL IN CODE
 
 
-        UserNode curr = usersData.findMostSimilarUser(userid);;
-        int [] movies_similarUser = curr.getFavoriteMovies(num);
+        UserNode curr = usersData.findMostSimilarUser(userid);
 
-        for(int i = 0; i < num; i++)
-        {
-            if(!movieMap.containsKey(movies_similarUser[i]))
-            {
-                try (PrintWriter pw = new PrintWriter(filename)) {
-                    for (Integer movie_recommendations: movies_similarUser) {
-                        pw.println(movieMap.get(movie_recommendations));
+        UserNode curr1 = usersData.get(userid);
+        int[] movies_similarUser = curr.getFavoriteMovies(num);
+        int[] actual_user = curr1.getAllMovies(userid);
 
-                    }
-                    pw.flush();
+
+        try (PrintWriter pw = new PrintWriter(filename)) {
+
+            for (int i = 0; i < num; i++) {
+                if (movies_similarUser[i] != actual_user[i]) {
+                    pw.println(movieMap.get(movies_similarUser[i]));
+                    System.out.println(movieMap.get(movies_similarUser[i]));
 
                 }
-                catch (IOException e) {
-                    System.out.println("Error writing to a file: "  + e);
-                }
-
 
             }
+            pw.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error writing to a file: " + e);
         }
 
-
     }
+
 
     /**
      * Computes up to num movie anti-recommendations for the user with the given
@@ -200,32 +200,36 @@ public class MovieRecommender {
         // rated).
         // FILL IN CODE
 
-        UserNode curr = usersData.findMostSimilarUser(userid);;
-        int [] movies_similarUser = curr.getLeastFavoriteMovies(num);
 
-        for(int i = 0; i < num; i++)
-        {
-            if(!movieMap.containsKey(movies_similarUser[i]))
-            {
-                try (PrintWriter pw = new PrintWriter(filename)) {
-                    for (Integer movie_recommendations: movies_similarUser) {
-                        pw.println(movieMap.get(movie_recommendations));
 
-                    }
-                    pw.flush();
+
+
+        UserNode curr = usersData.findMostSimilarUser(userid);
+
+        UserNode curr1 = usersData.get(userid);
+        int[] movies_similarUser = curr.getLeastFavoriteMovies(num);
+        int[] actual_user = curr1.getAllMovies(userid);
+
+
+        try (PrintWriter pw = new PrintWriter(filename)) {
+
+            for (int i = 0; i < num; i++) {
+                if (movies_similarUser[i] != actual_user[i]) {
+                    pw.println(movieMap.get(movies_similarUser[i]));
+                    System.out.println(movieMap.get(movies_similarUser[i]));
 
                 }
-                catch (IOException e) {
-                    System.out.println("Error writing to a file: "  + e);
-                }
-
 
             }
+            pw.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error writing to a file: " + e);
         }
-
-
-
 
     }
 
+
 }
+
+

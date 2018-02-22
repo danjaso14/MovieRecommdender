@@ -280,31 +280,36 @@ public class MovieRatingsList implements Iterable<MovieRatingNode> {
 
 
 			}
-			System.out.println(user1 + " " + user2);
+//			System.out.println(user1 + " " + user2);
 
 
 		}
 
-		System.out.println("Summation of X: " + summation_x);
-		System.out.println("Summation of Y: " + summation_y);
-
-		System.out.println("Summation of X^2: " + summation_x2);
-		System.out.println("Summation of Y^2: " + summation_y2);
-
-		System.out.println("Summation of XY: " + summation_xy);
-
 		cov_XY = (n*summation_xy -(summation_x*summation_y));
-		System.out.println("Covarinace: " + cov_XY);
+
 
 		double variance_X = Math.sqrt(n*summation_x2 - (summation_x*summation_x));
-		System.out.println("Variance of X " + variance_X);
-
 		double variance_y = Math.sqrt(n*summation_y2 - (summation_y*summation_y));
-		System.out.println("Variance of y " + variance_y);
 
-		System.out.println("Variance_X * Variance_Y: " + (variance_X*variance_y));
 
-		System.out.println("Pearson Correlation: " + (cov_XY/(variance_X*variance_y)) );
+
+//		System.out.println("Summation of X: " + summation_x);
+//		System.out.println("Summation of Y: " + summation_y);
+//
+//		System.out.println("Summation of X^2: " + summation_x2);
+//		System.out.println("Summation of Y^2: " + summation_y2);
+//
+//		System.out.println("Summation of XY: " + summation_xy);
+//
+//		System.out.println("Covarinace: " + cov_XY);
+//
+//		System.out.println("Variance of X " + variance_X);
+//
+//		System.out.println("Variance of y " + variance_y);
+//
+//		System.out.println("Variance_X * Variance_Y: " + (variance_X*variance_y));
+//
+//		System.out.println("Pearson Correlation: " + (cov_XY/(variance_X*variance_y)) );
 
 		similarity = (cov_XY/(variance_X*variance_y));
 

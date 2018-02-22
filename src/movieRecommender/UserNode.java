@@ -14,6 +14,11 @@ public class UserNode {
     private MovieRatingsList movieRatings;
     private UserNode nextUser;
 
+
+    public MovieRatingsList getMovieRatings() {
+        return movieRatings;
+    }
+
     /** A constructor for the UserNode.
      * @param id 	User id
      * */
@@ -106,35 +111,59 @@ public class UserNode {
      * @return array containing movie ids of movies rated as 5 (by this user)
      */
     public int[] getFavoriteMovies(int n)
-    {
-        // FILL IN CODE
-
-        int [] favMovies = new int[n];
-
-        Iterator it = movieRatings.iterator();
-        int i = 0;
-        while(it.hasNext())
         {
-            MovieRatingNode current = (MovieRatingNode) it.next();
+            // FILL IN CODE
 
-            if(current.getMovieRating() >= 5)
+            int [] best = new int[n];
+
+            Iterator it = movieRatings.iterator();
+            int i = 0;
+//        int j = 0;
+            while(it.hasNext() && i < n)
             {
-                favMovies[i] = current.getMovieId();
-                i++;
+                MovieRatingNode current = (MovieRatingNode) it.next();
+
+                if(current.getMovieRating() >= 5)
+                {
+                    best[i] = current.getMovieId();
+                    i++;
+//                j++;
+                }
+
+
             }
 
 
-        }
 
 
-        for(int j = 0; j < n; j++ )
-        {
-            System.out.println(favMovies[j]);
-        }
-
-
-        return favMovies;
+            return best;
     }
+
+    public int [] getAllMovies(int userId)
+    {
+        // FILL IN CODE
+
+
+
+        int [] getAllMovies = new int[100000];
+
+        Iterator it = movieRatings.iterator();
+        int i = 0;
+
+        while(it.hasNext())
+        {
+            MovieRatingNode current = (MovieRatingNode) it.next();
+            getAllMovies[i] = current.getMovieId();
+
+
+        }
+
+
+
+        return getAllMovies;
+    }
+
+
 
 
 
@@ -152,7 +181,8 @@ public class UserNode {
 
         Iterator it = movieRatings.iterator();
         int i = 0;
-        while(it.hasNext())
+//        int j = 0;
+        while(it.hasNext() && i < n)
         {
             MovieRatingNode current = (MovieRatingNode) it.next();
 
@@ -160,16 +190,14 @@ public class UserNode {
             {
                 worstMovies[i] = current.getMovieId();
                 i++;
+//                j++;
             }
 
 
         }
 
 
-        for(int j = 0; j < n; j++ )
-        {
-            System.out.println(worstMovies[j]);
-        }
+
 
         return worstMovies;
     }

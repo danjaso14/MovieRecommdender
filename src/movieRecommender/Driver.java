@@ -26,9 +26,10 @@ import java.nio.file.Paths;
 public class Driver {
     public static void main(String[] args) {
 
-        /*
-        MovieRecommender recommender = new MovieRecommender();
+       //==================================================================
+        // Original main
 
+        MovieRecommender recommender = new MovieRecommender();
 
         // movies.csv and ratings.csv should be in the project folder
         recommender.loadData("movies.csv","ratings.csv");
@@ -38,13 +39,11 @@ public class Driver {
         System.out.println();
         recommender.findAntiRecommendations(3, 15, "antiRecommendations");
 
-        */
+
+//========================================================================================================
 
 
-
-
-        MovieRecommender recommender = new MovieRecommender();
-        recommender.loadData("movies.csv","ratings.csv");
+//        recommender.loadData("movies.csv","ratings.csv");
 //        recommender.loadData("movies.csv");
 
 
@@ -56,7 +55,7 @@ public class Driver {
 //
 //
 
-        UsersList n = new UsersList();
+//        UsersList n = new UsersList();
 //        n.insert(1,1,4.0);
 //        n.insert(1,2,5.0);
 //        n.insert(1,3,4.8);
@@ -82,7 +81,7 @@ public class Driver {
 //=========================================================
         //Userlist printer test case
 
-        UsersList u_l = new UsersList();
+//        UsersList u_l = new UsersList();
 //        u_l.insert(2,3,3.3);
 //        u_l.insert(3,4,4.4);
 //        u_l.insert(3,3,3.0);
@@ -120,7 +119,7 @@ public class Driver {
         //===================================================
         // Usernode Best and Worst test cases
 
-        UserNode node_trial = new UserNode(2);
+//        UserNode node_trial = new UserNode(2);
 //        node_trial.insert(3,5.0);
 //        node_trial.insert(4,0.5);
 //        node_trial.insert(7,5.0);
@@ -146,17 +145,29 @@ public class Driver {
 //====================================================================
         // ToString Userlist and other toString Methods cases
 //
+
+//        MovieRatingsList l = new MovieRatingsList();
+//        l.insertByRating(2,3.3);
+//        l.insertByRating(3,4.4);
+//        l.insertByRating(10,3.0);
+//        l.insertByRating(40,3.0);
+//        l.insertByRating(42,3.9);
+//        l.insertByRating(41,4.9);
+//        l.insertByRating(39,2.2);
+//        System.out.println(l.toString());
+//
 //        UserNode n = new UserNode(2);
 //        n.insert(3,3.3);
 //        n.insert(4,4.5);
 //        n.insert(7,5.0);
 //        n.insert(10,1.1);
 //
-////        System.out.println(n.toString());
+//        System.out.println(n.toString());
 //
 //
 //        UsersList u = new UsersList();
 //        u.insert(1,6,4.4);
+//
 //        u.insert(50,5,3.5);
 //        u.insert(30,20,2.2);
 //        u.insert(10,50,0.9);
@@ -191,7 +202,7 @@ public class Driver {
 
         // ===========================================================
 
-        MovieRatingsList list = new MovieRatingsList();
+//        MovieRatingsList list = new MovieRatingsList();
 //
 //=============================================================================
         //Test case for Pearson
@@ -220,28 +231,28 @@ public class Driver {
 
         //Test case for usersSimilarity
 
-        UsersList u = new UsersList();
+//        UsersList u = new UsersList();
 
 
-        u.printUserList();
-
-        u.findMostSimilarUser(2);
-
-        int[] MOVIES1 = {1, 2, 3, 4, 5, 6, 7};
-        double[] RATINGS1 = {5, 5, 2, 5, 4, 3, 4};
-        int[] MOVIES2 = {2, 4, 7};
-        double[] RATINGS2 = {4, 1, 2};
-        int[] MOVIES3 = {1, 4, 5, 7};
-        double[] RATINGS3 = {3, 2, 5, 1};
-
-        u.addData(u, 1, MOVIES1, RATINGS1);
-        double[] ratings2 = {5, 4, 4};
-        u.addData(u, 2, MOVIES2, ratings2);
-        u.addData(u, 3, MOVIES3, RATINGS3);
-
-        int mostSimilar1 = u.findMostSimilarUser(1).getId();
-        System.out.println(mostSimilar1);
-        u.findMostSimilarUser(3);
+//        u.printUserList();
+//
+//        u.findMostSimilarUser(2);
+//
+//        int[] MOVIES1 = {1, 2, 3, 4, 5, 6, 7};
+//        double[] RATINGS1 = {5, 5, 2, 5, 4, 3, 4};
+//        int[] MOVIES2 = {2, 4, 7};
+//        double[] RATINGS2 = {4, 1, 2};
+//        int[] MOVIES3 = {1, 4, 5, 7};
+//        double[] RATINGS3 = {3, 2, 5, 1};
+//
+//        u.addData(u, 1, MOVIES1, RATINGS1);
+//        double[] ratings2 = {5, 4, 4};
+//        u.addData(u, 2, MOVIES2, ratings2);
+//        u.addData(u, 3, MOVIES3, RATINGS3);
+//
+//        int mostSimilar1 = u.findMostSimilarUser(1).getId();
+//        System.out.println(mostSimilar1);
+//        u.findMostSimilarUser(3);
 
 
         //===============================================================
@@ -380,67 +391,7 @@ public class Driver {
 //
 
 
-
-
-
-
-
-
-
-
-
     }
-
-    public class UsersListTest11 {
-
-        public  int[] MOVIES1 = {1, 2, 3, 4, 5, 6, 7};
-        public  double[] RATINGS1 = {5, 5, 2, 5, 4, 3, 4};
-        public  int[] MOVIES2 = {2, 4, 7};
-        public  double[] RATINGS2 = {4, 1, 2};
-        public  int[] MOVIES3 = {1, 4, 5, 7};
-        public  double[] RATINGS3 = {3, 2, 5, 1};
-
-
-        public void testUsersList() {
-            UsersList users = new UsersList();
-            addData(users, 1, MOVIES1, RATINGS1);
-            addData(users, 2, MOVIES2, RATINGS2);
-            addData(users, 3, MOVIES3, RATINGS3);
-
-        }
-
-
-        public void testMostSimilarUser() {
-            UsersList users = new UsersList();
-            addData(users, 1, MOVIES1, RATINGS1);
-            double[] ratings2 = {5, 4, 4};
-            addData(users, 2, MOVIES2, ratings2);
-            addData(users, 3, MOVIES3, RATINGS3);
-
-            int mostSimilar1 = users.findMostSimilarUser(1).getId();
-            Assert.assertEquals("Most similar user for user 1 should be 2, but got  " + mostSimilar1, mostSimilar1, 2);
-        }
-
-        /**
-         * Insert a given data for a given user id into the usersList
-         * @param users
-         * @param userId
-         * @param movies
-         * @param ratings
-         */
-        public void addData(UsersList users, int userId, int[] movies, double[] ratings) {
-            if (users == null)
-                users = new UsersList();
-//            if (movies.length != ratings.length) {
-//                Assert.fail("Wrong parameters in addData. # of movies != # of ratings");
-//            }
-            for (int i = 0; i < movies.length; i++) {
-                users.insert(userId, movies[i], ratings[i]);
-            }
-
-        }
-    }
-
 
 
 }

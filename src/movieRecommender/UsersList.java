@@ -39,14 +39,18 @@ public class UsersList {
 
 
         if(head == null)
+        {
             append(new_node);
-        new_node.insert(movieId, rating);
+            new_node.insert(movieId, rating);
+        }
+
 
         UserNode curr = head;
         while(curr!=null)
         {
             if(curr.getId() == userId)
             {
+                curr.insert(movieId,rating);
                 return;
             }
 
@@ -170,10 +174,7 @@ public class UsersList {
             current = current.next();
         }
 
-//        System.out.println(found_user.toString());
 
-
-//
         UserNode curr = head;
         double max = 0.0;
 
@@ -181,17 +182,22 @@ public class UsersList {
         while (curr != null)
         {
 
-            double temp = curr.computeSimilarity(found_user);
-
-            System.out.println(temp);
-
-            if(max < temp)
+            if(curr.getId() != userid)
             {
-                mostSimilarUser = curr;
-                max = temp;
+                double temp = found_user.computeSimilarity(curr);
+
+                if(max < temp)
+                {
+                    mostSimilarUser = curr;
+                    max = temp;
+
+                }
 
             }
+
+
             curr = curr.next();
+
 
 
         }
