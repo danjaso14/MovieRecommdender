@@ -50,8 +50,8 @@ public class MovieRecommender {
     private void loadMovies(String movieFilename)
     {
         // FILL IN CODE
-        int movieId = 0;
-        String title = "";
+
+
         try (FileReader f = new FileReader(movieFilename);
              BufferedReader br = new BufferedReader(f))
         {
@@ -80,8 +80,8 @@ public class MovieRecommender {
 
                  */
 
-                movieId = Integer.parseInt(splitline[0]);
-                title = splitline[1];
+                int movieId = Integer.parseInt(splitline[0]);
+                String title = splitline[1];
 //                String genres = splitline[2];
 
 //                System.out.println(splitline[0] + " " + splitline[1] + " " + splitline[2]);
@@ -107,9 +107,7 @@ public class MovieRecommender {
     private void loadRatings(String ratingsFilename)
     {
         // FILL IN CODE
-        int userId = 0;
-        int movieId = 0;
-        double rating = 0.0;
+
 
 
         try (FileReader f = new FileReader(ratingsFilename);
@@ -124,9 +122,9 @@ public class MovieRecommender {
 
 //                System.out.println(splitLine[2]);
 
-                userId = Integer.parseInt(splitLine[0]);
-                movieId = Integer.parseInt(splitLine[1]);
-                rating = Double.parseDouble(splitLine[2]);
+                int userId = Integer.parseInt(splitLine[0]);
+                int movieId = Integer.parseInt(splitLine[1]);
+                double rating = Double.parseDouble(splitLine[2]);
 
                 usersData.insert(userId,movieId,rating);
 
@@ -173,7 +171,7 @@ public class MovieRecommender {
 
         UserNode curr1 = usersData.get(userid);
         int[] movies_similarUser = curr.getFavoriteMovies(num);
-        int[] actual_user = curr1.getAllMovies(userid);
+        int[] actual_user = curr1.getAllMovies(num,userid);
 
 
         try (PrintWriter pw = new PrintWriter(filename)) {
@@ -224,7 +222,7 @@ public class MovieRecommender {
 
         UserNode curr1 = usersData.get(userid);
         int[] movies_similarUser = curr.getLeastFavoriteMovies(num);
-        int[] actual_user = curr1.getAllMovies(userid);
+        int[] actual_user = curr1.getAllMovies(num,userid);
 
 
         try (PrintWriter pw = new PrintWriter(filename)) {

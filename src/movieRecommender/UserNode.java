@@ -137,13 +137,13 @@ public class UserNode {
             return best;
     }
 
-    public int [] getAllMovies(int userId)
+    public int [] getAllMovies(int n, int userId)
     {
         // FILL IN CODE
 
 
 
-        int [] getAllMovies = new int[100000];
+        int [] getAllMovies = new int[n];
 
         Iterator it = movieRatings.iterator();
         int i = 0;
