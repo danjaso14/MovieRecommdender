@@ -136,30 +136,6 @@ public class MovieRatingsList implements Iterable<MovieRatingNode> {
 
 	}
 
-//    public int [] getNBestMovieId(int n)
-//    {
-//        // FILL IN CODE
-//
-//        MovieRatingNode curr = head;
-//        int [] list = new int [n];
-//        int i = 0;
-//        while (i != n)
-//        {
-//            if(curr.getMovieRating() >= 5)
-//            {
-//                list[i] = curr.getMovieId();
-//
-//            }
-//
-//            curr = curr.next();
-//            i++;
-//
-//
-//        }
-//
-//        return list;
-//
-//    }
 
 	public double getRatings()
 	{
@@ -202,7 +178,7 @@ public class MovieRatingsList implements Iterable<MovieRatingNode> {
 
 		else
 		{
-			MovieRatingNode curr = head, prev = null;
+			MovieRatingNode curr = head;
 
 			while (curr.next() != null &&
 					curr.next().getMovieRating() > n.getMovieRating())
@@ -319,15 +295,6 @@ public class MovieRatingsList implements Iterable<MovieRatingNode> {
 		return similarity;
 
 	}
-
-//    public void print() {
-//        MovieRatingsListIterator it = new MovieRatingsListIterator();
-//        while (!it.hasNext()) {
-//            System.out.print(it.next() + "  ");
-//        }
-//        System.out.println();
-//    }
-
 
 
 
@@ -465,29 +432,6 @@ public class MovieRatingsList implements Iterable<MovieRatingNode> {
 
 		return list_best;
 	}
-
-//    public int [] getBestMovies (int n)
-//    {
-//        int [] r = new int [n];
-//
-//        MovieRatingsList list_best = new MovieRatingsList();
-//
-//
-//        MovieRatingNode curr = head;
-//        int i = 0;
-//        while (i != n)
-//        {
-//            r[i] = curr.getMovieId();
-//            curr = curr.next();
-//
-//        }
-//
-//
-//        return r;
-//    }
-//
-
-
 
 
 	/**

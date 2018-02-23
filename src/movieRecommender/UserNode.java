@@ -118,7 +118,6 @@ public class UserNode {
 
             Iterator it = movieRatings.iterator();
             int i = 0;
-//        int j = 0;
             while(it.hasNext() && i < n)
             {
                 MovieRatingNode current = (MovieRatingNode) it.next();
@@ -127,7 +126,6 @@ public class UserNode {
                 {
                     best[i] = current.getMovieId();
                     i++;
-//                j++;
                 }
 
 
@@ -181,7 +179,6 @@ public class UserNode {
 
         Iterator it = movieRatings.iterator();
         int i = 0;
-//        int j = 0;
         while(it.hasNext() && i < n)
         {
             MovieRatingNode current = (MovieRatingNode) it.next();
@@ -190,7 +187,6 @@ public class UserNode {
             {
                 worstMovies[i] = current.getMovieId();
                 i++;
-//                j++;
             }
 
 

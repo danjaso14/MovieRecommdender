@@ -252,18 +252,4 @@ public class UsersList {
 
     }
 
-
-    public void addData(UsersList users, int userId, int[] movies, double[] ratings) {
-        if (users == null)
-            users = new UsersList();
-//            if (movies.length != ratings.length) {
-//                Assert.fail("Wrong parameters in addData. # of movies != # of ratings");
-//            }
-        for (int i = 0; i < movies.length; i++) {
-            users.insert(userId, movies[i], ratings[i]);
-        }
-
-    }
-
-
 }
