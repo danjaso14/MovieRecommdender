@@ -171,7 +171,7 @@ public class MovieRecommender {
 
         UserNode curr1 = usersData.get(userid);
         int[] movies_similarUser = curr.getFavoriteMovies(num);
-        int[] actual_user = curr1.getAllMovies(num,userid);
+        int[] actual_user = curr1.getAllMovies(userid);
 
 
         try (PrintWriter pw = new PrintWriter(filename)) {
@@ -179,7 +179,7 @@ public class MovieRecommender {
             for (int i = 0; i < num; i++) {
                 if (movies_similarUser[i] != actual_user[i]) {
                     pw.println(movieMap.get(movies_similarUser[i]));
-                    System.out.println(movieMap.get(movies_similarUser[i]));
+//                    System.out.println(movieMap.get(movies_similarUser[i]));
 
                 }
 
@@ -222,20 +222,40 @@ public class MovieRecommender {
 
         UserNode curr1 = usersData.get(userid);
         int[] movies_similarUser = curr.getLeastFavoriteMovies(num);
-        int[] actual_user = curr1.getAllMovies(num,userid);
+        int[] actual_user = curr1.getAllMovies(userid);
 
+        try (PrintWriter pw = new PrintWriter(filename)){
+            for(int i = 0; i < movies_similarUser.length; i++)
+            {
+                pw.println(movieMap.get(movies_similarUser[i]));
 
-        try (PrintWriter pw = new PrintWriter(filename)) {
+            }
+            pw.println("============================================");
 
-            for (int i = 0; i < num; i++) {
-                if (movies_similarUser[i] != actual_user[i]) {
-                    pw.println(movieMap.get(movies_similarUser[i]));
-                    System.out.println(movieMap.get(movies_similarUser[i]));
+            for(int j = 0; j < actual_user.length; j++)
+            {
+                pw.println(movieMap.get(actual_user[j]));
+
+            }
+            pw.println("============================================");
+
+            for(int i = 0; i < movies_similarUser.length; i++)
+            {
+                for(int j = 0; j < actual_user.length; j++)
+                {
+
+                    if(movies_similarUser[i] == actual_user[j])
+                    {
+                        pw.println(movieMap.get(movies_similarUser[i]));
+
+                    }
 
                 }
 
             }
-            pw.flush();
+
+
+
 
         } catch (IOException e) {
             System.out.println("Error writing to a file: " + e);

@@ -1,3 +1,5 @@
+package TestMovieRecommender;
+
 import movieRecommender.MovieRatingNode;
 import movieRecommender.MovieRatingsList;
 import org.junit.Assert;

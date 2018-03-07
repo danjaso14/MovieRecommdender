@@ -66,22 +66,6 @@ public class UserNode {
         list += "(" + userId + ")" + movieRatings.toString();
 
 
-//        Iterator it = movieRatings.iterator();
-//        MovieRatingNode current = null;
-//
-//        while (it.hasNext())
-//        {
-//            current = (MovieRatingNode) it.next();
-//            list += "(" + userId + ")" + movieRatings.toString() + ";";
-////            System.out.println("hello");
-//
-//        }
-//        System.out.println(list);
-
-
-
-
-
 
         return  list;
 
@@ -137,21 +121,24 @@ public class UserNode {
             return best;
     }
 
-    public int [] getAllMovies(int n, int userId)
+    public int [] getAllMovies(int userId)
     {
         // FILL IN CODE
 
 
 
-        int [] getAllMovies = new int[n];
+        int [] getAllMovies = new int[52];
 
         Iterator it = movieRatings.iterator();
         int i = 0;
-
         while(it.hasNext())
         {
             MovieRatingNode current = (MovieRatingNode) it.next();
+
             getAllMovies[i] = current.getMovieId();
+            System.out.println(current.getMovieId());
+            i++;
+
 
 
         }

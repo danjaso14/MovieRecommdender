@@ -31,13 +31,58 @@ public class Driver {
 
         MovieRecommender recommender = new MovieRecommender();
 
-        // movies.csv and ratings.csv should be in the project folder
+//         movies.csv and ratings.csv should be in the project folder
         recommender.loadData("movies.csv","ratings.csv");
         System.out.println("Loaded movie data...");
 
         recommender.findRecommendations(3, 15, "recommendations");
         System.out.println();
         recommender.findAntiRecommendations(3, 15, "antiRecommendations");
+
+
+//        String [] actualUser = {"Coco", "Turtle Ninjas", "P.S. I love You", "Thor", "Black Panther"};
+//        String [] similarUser = {"Coco", "50 Shades of Gray", "Iron Man 3", "Thor", "Black Panther"};
+//
+//        for(int i = 0; i < actualUser.length; i++)
+//        {
+//            System.out.println(actualUser[i]);
+//        }
+//
+//        System.out.println("===============================================");
+//
+//        for(int j = 0; j < similarUser.length; j++)
+//        {
+//            System.out.println(similarUser[j]);
+//
+//        }
+//
+//        System.out.println("========================================");
+//        System.out.println("Reccommendation");
+//
+//        for(int i = 0; i < actualUser.length; i++)
+//        {
+//
+//            for(int j = 0; j < similarUser.length; j++)
+//            {
+//                if(actualUser[i].equals(similarUser[j]))
+//                {
+//                    System.out.println(similarUser[j]);
+//
+//                }
+//            }
+//        }
+
+
+        UserNode n = new UserNode(2);
+        n.insert(2,5.0);
+        n.insert(4,4.5);
+        n.insert(10,3.0);
+        n.insert(20,1.0);
+        n.insert(30,2.5);
+
+        System.out.println(n.getAllMovies(2));
+
+
 
 
 //========================================================================================================

@@ -1,3 +1,5 @@
+package TestMovieRecommender;
+
 import movieRecommender.UsersList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -30,9 +32,9 @@ public class UsersListTest {
         addData(users, 2, MOVIES2, RATINGS2);
         addData(users, 3, MOVIES3, RATINGS3);
 
-        Path actual = Paths.get("test" + File.separator + "usersDataSimple");  // your output
+        Path actual = Paths.get("test" + File.separator + "TestMovieRecommender/usersDataSimple");  // your output
         users.print(actual.toString());
-        Path expected = Paths.get("test" + File.separator + "expectedUsersDataSimple"); // instructor's
+        Path expected = Paths.get("test" + File.separator + "TestMovieRecommender/expectedUsersDataSimple"); // instructor's
 
         // Compare your output with expected output
         int count = 0;

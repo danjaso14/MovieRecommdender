@@ -1,3 +1,5 @@
+package TestMovieRecommender;
+
 import movieRecommender.MovieRecommender;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,13 +19,13 @@ public class MovieRecommenderTest {
         MovieRecommender recommender = new MovieRecommender();
         recommender.loadData("movies.csv","ratings.csv");
         System.out.println("Loaded data...");
-        String filenameRecommendations = "test" + File.separator + "recommendations";
+        String filenameRecommendations = "test" + File.separator + "TestMovieRecommender/recommendations";
         recommender.findRecommendations(3, 5, filenameRecommendations);
         //System.out.println();
         //recommender.findAntiRecommendations(3, 5, "antiRecommendations");
 
         Path actual = Paths.get(filenameRecommendations);  // your output
-        Path expected = Paths.get("test" + File.separator + "expectedRecommendations"); // instructor's
+        Path expected = Paths.get("test" + File.separator + "TestMovieRecommender/expectedRecommendations"); // instructor's
 
         // Compare your recommendations with expected recommendations
         int count = 0;
@@ -41,11 +43,11 @@ public class MovieRecommenderTest {
         MovieRecommender recommender = new MovieRecommender();
         recommender.loadData("movies.csv","ratings.csv");
         System.out.println("Loaded data...");
-        String filenameAntiRecommendations = "test" + File.separator + "antiRecommendations";
+        String filenameAntiRecommendations = "test" + File.separator + "TestMovieRecommender/antiRecommendations";
         recommender.findAntiRecommendations(3, 5, filenameAntiRecommendations);
 
         Path actual = Paths.get(filenameAntiRecommendations);  // your output
-        Path expected = Paths.get("test" + File.separator + "expectedAntiRecommendations"); // instructor's
+        Path expected = Paths.get("test" + File.separator + "TestMovieRecommender/expectedAntiRecommendations"); // instructor's
 
         // Compare your anti-recommendations with expected anti-recommendations
         int count = 0;
