@@ -471,11 +471,13 @@ public class CompactPrefixTree implements Dictionary {
 
             }
 
-            if(node.prefix.equals(s) && node.isWord == true)
+            if(node.prefix.equals(s) && node.isWord == false)
             {
                 return  node;
 
             }
+
+
 
             else if(node.prefix.equals(s) && node.isWord == false)
             {
@@ -500,6 +502,20 @@ public class CompactPrefixTree implements Dictionary {
                         suffix_node = node.children[i].prefix.substring(len);
                         suffix_word = s.substring(len);
 
+                        if(suffix_node.equals("") && suffix_word.equals(""))
+                        {
+                            return node;
+                        }
+
+                        if(suffix_node.equals(""))
+                        {
+                            add(suffix_word, node.children[i]);
+                            return new_node;
+
+                        }
+
+
+
                         new_NodeParent = new Node();
                         new_NodeParent.isWord = false;
                         new_NodeParent.prefix = common_prefix;
@@ -508,10 +524,12 @@ public class CompactPrefixTree implements Dictionary {
 
                         node.children[i].prefix = suffix_node;
 
-                        if(suffix_node.equals(""))
-                        {
-
-                        }
+//                    if(suffix_node.equals(""))
+//                    {
+//                        add(suffix_word, node.children[i]);
+//                        return new_node;
+//
+//                    }
 
 
                         first_letter = suffix_node.charAt(0);
@@ -839,8 +857,6 @@ public class CompactPrefixTree implements Dictionary {
 
         }
 }
-
-
 
 
 

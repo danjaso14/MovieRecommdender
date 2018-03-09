@@ -51,14 +51,14 @@ public class Driver {
 //        ===================================================
 
         //  TEST CASE 1
-        tree.add("cat");
-        tree.add("ape");
-        tree.add("apple");
-        tree.add("cart");
+//        tree.add("cat");
+//        tree.add("ape");
+//        tree.add("apple");
+//        tree.add("cart");
 //        tree.add("cats");
 //        tree.add("cat");
-        tree.add("demon");
-        tree.add("dog");
+//        tree.add("demon");
+//        tree.add("dog");
 //        tree.add("demons");
 
 //        tree.printTree();
@@ -69,13 +69,13 @@ public class Driver {
         tree.add("liberty");
         tree.add("life");
         tree.add("lavender");
-//        tree.add("list");
+        tree.add("list");
         tree.add("youtube");
         tree.add("your");
-////        tree.add("you");
+        tree.add("you");
         tree.add("wrist");
         tree.add("wrath");
-//        tree.add("wristle");
+        tree.add("wristle");
 //
 //        tree.print();
         tree.printTree();
