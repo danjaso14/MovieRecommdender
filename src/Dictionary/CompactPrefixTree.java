@@ -479,7 +479,7 @@ public class CompactPrefixTree implements Dictionary {
 
 
 
-            else if(node.prefix.equals(s) && node.isWord == false)
+            else if(node.prefix.equals(s) && node.isWord == true)
             {
                 node.isWord = true;
                 return node;
@@ -495,6 +495,13 @@ public class CompactPrefixTree implements Dictionary {
 
                 for(int i = 0; i < node.children.length; i++)
                 {
+                    if(node.children[i] != null && node.children[i].prefix.equals(s) && node.children[i].isWord == false)
+                    {
+                        node.children[i].isWord = true;
+                        return node.children[i];
+                    }
+
+
                     if(node.children[i] != null  && s.charAt(0) == node.children[i].prefix.charAt(0))
                     {
                         common_prefix = findLongestCommonPrefix(s, node.children[i].prefix);
