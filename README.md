@@ -1,2 +1,3 @@
-# project1
-Starter code for cs545 project 1, MovieRecommender. Please see the pdf description posted on Canvas and starter code for details.
+# MovieRecommender 
+
+This project is intended to do the same algotithm as Netflix in order to compare the best recommendation for the user. 
